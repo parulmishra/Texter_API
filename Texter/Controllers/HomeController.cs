@@ -31,5 +31,17 @@ namespace Texter.Controllers
             message.Send();
             return RedirectToAction("Index");
         }
+
+        public IActionResult CreateContact()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult CreateContact(Contact newContact)
+        {
+            Contacts.add(newContact);
+        }
+
     }
 }

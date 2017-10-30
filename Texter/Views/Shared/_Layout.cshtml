@@ -18,10 +18,10 @@
         @if(User.Identity.IsAuthenticated)  
         {
             <li class="user-nav1">Hello @User.Identity.Name 
-                @Html.ActionLink("","Index", "Texter")</li>  
+                @Html.ActionLink("","Index", "Home")</li>  
 				
 		    <li class="user-nav2">
-                @Html.ActionLink("PhoneBook","GetContacts", "Contact")
+                @Html.ActionLink("PhoneBook","Index", "Contact")
 			</li>
 
 			<li class="user-nav2">

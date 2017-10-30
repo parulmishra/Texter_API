@@ -1,0 +1,44 @@
+﻿@model Texter.Models.Contact
+
+<head>
+	 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <script type="text/javascript">
+
+    	$(document).ready(function () {
+                $('.').click(function () 
+		        {
+                    $.ajax({
+                        url: '@Url.Action("AddContact")',
+                        type: 'GET',
+                        dataType: 'html',
+                        success: function (result) {
+                            var contact = `
+                        		<h3></h3>
+                        		<h3></h3>
+                        		<h3></h3>`;
+                            }
+                            $('.contacts').html(contact);
+                        }
+                });
+            });	
+	 </script>
+</head>
+<body>
+    <div class="well">
+        @using (Ajax.BeginForm("CreateContact", "Contact", new{encrypt = "multipart/form-data"}))
+        {
+            <h3>First Name</h3>
+            <h3>@Html.EditorFor(model=>model.firstName)</h3>
+
+            <h3>First Name</h3>
+            <h3>@Html.EditorFor(model=>model.lastName)</h3>
+
+            <h3>First Name</h3>
+            <h3>@Html.EditorFor(model=>model.number)</h3>
+
+            @Html.HiddenFor(model=>model.Id)
+
+            <input type="submit" value="AddContact" class="btn btn-default">
+        }
+    </div>
+</body>

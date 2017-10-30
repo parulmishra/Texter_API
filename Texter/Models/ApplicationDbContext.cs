@@ -56,7 +56,7 @@ namespace Texter.Models
 				.HasMaxLength(255));
 
 		}
-		public DbSet<User> ApplicationUsers { get; set; }
+		public DbSet<User> Users { get; set; }
         public DbSet<Contact> Contacts { get; set; }
 
 		protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

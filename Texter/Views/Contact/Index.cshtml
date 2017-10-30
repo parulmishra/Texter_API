@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "All Contacts";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@model IEnumerable<Texter.Models.Contact>
+
+<head>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+     <script type="text/javascript">
+        
+        $(document).ready(function () {
+            $('.addReview').click(function () {
+                $.ajax({
+                    url: '@Url.Action("EventGenerator")',
+                    type: 'GET',
+                    dataType: 'html',
+                    success: function (result) {
+                       $(".contactAdd").html(result);
+                        }
+                    });
+            });
+        });
+    </script>
+</head>
+<body>
+    <div class="well contacts">
+        @if(Model != null)
+        {
+    	    <table>
+                <tr>
+                    <th>Contact Name</th>
+                </tr>
+                @foreach(var contact in Model)
+                {
+                  <tr>
+                    <td>@Html.DisplayFor(x => contact.firstName)+ " " + @Html.DisplayFor(x => contact.lastName)</td>
+                    <td>
+                        <button type="button">Details</button>
+                    </td>
+                  </tr>  
+                }
+            </table>
+        }
+        else
+        {
+            <h2>There are no contacts in your Phone Book</h2>
+    	}
+    </div>
+
+	<div class="contactAdd">
+	</div>
+	
+    <button type="button" class="addReview">Add Contact</button>
+</body>	

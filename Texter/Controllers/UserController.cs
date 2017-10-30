@@ -33,8 +33,7 @@ namespace Texter.Controllers
         {
             var user = new User { UserName = model.Email };
             IdentityResult createResult = await _userManager.CreateAsync(user, model.Password);
-            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager
-                .PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
+            Microsoft.AspNetCore.Identity.SignInResult result = await _signInManager.PasswordSignInAsync(model.Email, model.Password, isPersistent: true, lockoutOnFailure: false);
 
             if (result.Succeeded)
             {

@@ -1,0 +1,23 @@
+﻿.logoff {
+    border: none;
+    background: none;
+    color: grey;
+    padding: 15px;
+}
+
+.user-nav1 {
+    padding-top: 10px;
+    color: grey;
+    margin-top: 5px;
+    margin-right: 10px;
+}
+
+.logoff:hover, .user-nav:hover {
+        color: #ffffff;
+        cursor: pointer;
+    }
+
+.welcome {
+    margin-top: 100px;
+    text;
+}

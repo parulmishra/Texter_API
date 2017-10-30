@@ -1,0 +1,17 @@
+﻿@using Texter.ViewModels
+@model LoginViewModel
+
+<div class="well">
+	<h2>Log in With your Account</h2>
+	<hr/>
+	@using (Html.BeginForm())
+	{
+    	<h3>@Html.LabelFor(m=>m.Email)</h3>
+    	<h3>@Html.TextBoxFor(m=>m.Email)</h3>
+
+    	<h3>@Html.LabelFor(m=>m.Password)</h3>
+    	<h3>@Html.PasswordFor(m=>m.Password)</h3>
+
+    	<input type="submit" value="Login" class="btn btn-default"/>
+	}
+</div>
